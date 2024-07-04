@@ -8,7 +8,7 @@ const passport = require("passport");
 
 // load config
 dotenv.config();
-
+ 
 // passport config
 // require('./passport')(passport);
 
@@ -27,6 +27,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+app.use('/', require('./routes'))
 
 mongoose.connect(process.env.MONGODB_URI);
 

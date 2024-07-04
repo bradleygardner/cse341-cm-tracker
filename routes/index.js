@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 router.get('/', ensureGuest, (req, res) => {
@@ -10,5 +9,8 @@ router.get('/dashboard', ensureAuth, (req, res) => {
     res.send("Dashboard")
     });
 
-router.use("/api-docs", require())
+//router.use("/api-docs", require())
+router.use('/car', require('./car'));
+
+module.exports = router;
 
