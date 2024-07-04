@@ -1,35 +1,53 @@
 const express = require('express');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swaggerStatic.json');
-const passport = require("passport");
+const session = require('express-session');
+const MongoStore = require("connect-mongo");
+const passport = require('passport');
+const path = require('path');
+const connectDB = require('./config/db');
 
-// load config
-dotenv.config();
+// Load environment variables
+dotenv.config({ path: './config/config.env' });
 
-// passport config
-// require('./passport')(passport);
+// Passport config
+require('./config/passport')(passport);
+
+// Connect to MongoDB
+connectDB()
 
 const app = express();
 
-// Passport middleware
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// Body parser
+// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
+  })
+);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// CORS (if needed)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
 });
 
-mongoose.connect(process.env.MONGODB_URI);
+// Routes
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening at http://localhost:${process.env.PORT}`);
-});
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
