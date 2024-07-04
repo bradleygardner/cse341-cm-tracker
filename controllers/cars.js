@@ -4,9 +4,12 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAllCars = async (req, res) => {
     try {
-        //const cars = await CarSchema.find(req.user._id);
-        //Currently it returns all cars. We need to filter by userId
-        await CarSchema.find().then((lists) => {
+        if (process.env.TEST == "true") {
+            req.user = {
+                _id: "Test UserId"
+            }
+        }
+        await CarSchema.find({userId: req.user._id}).then((lists) => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(lists);
         });
@@ -30,9 +33,14 @@ const getSingleCar = async (req, res) => {
 };
 const addCar = async (req, res) => {
     try {
+        if (process.env.TEST == "true") {
+            req.user = {
+                _id: "Test UserId"
+            }
+        }
         var today = new Date().toISOString().substring(0, 10);
         await CarSchema.create({
-            userId: "Test UserId", //req.user._id
+            userId: req.user._id,
             nickName: req.body.nickName,
             make: req.body.make,
             model: req.body.model,
