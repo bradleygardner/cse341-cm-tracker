@@ -17,6 +17,7 @@
     "nodemon": "^3.1.4",
     "passport": "^0.7.0",
     "passport-google-oauth": "^2.0.0",
+    "swagger": "^0.7.5",
     "swagger-ui-express": "^5.0.1",
     "validatorjs": "^3.22.1"
   },

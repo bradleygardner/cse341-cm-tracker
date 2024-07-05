@@ -11,6 +11,7 @@ router.get('/dashboard', ensureAuth, (req, res) => {
 
 //router.use("/api-docs", require())
 router.use('/car', require('./car'));
+router.use('/maintenance', require('./maintenanceRoute'));
 
 module.exports = router;
 
