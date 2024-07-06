@@ -1,6 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const app = require("./app");
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swaggerStatic.json');
 const session = require('express-session');
 const MongoStore = require("connect-mongo");
 const passport = require('passport');
@@ -10,17 +14,19 @@ const connectDB = require('./config/db');
 // Load environment variables
 dotenv.config({ path: './config/config.env' });
 
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on('connected', () => console.log('connected'));
 // Passport config
 require('./config/passport')(passport);
 
 // Connect to MongoDB
 connectDB()
 
-const app = express();
-
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(
   session({
