@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/addCar.js" type="module"></script>
+    <title>Add car</title>
+</head>
+
+<body>
+    <Header id="main-header"></Header>
+    <main>
+        <h1>Add Car</h1>
+        <div id="main-content">
+          <form name="car">
+            <div class="form-group">
+                <label for="nick_name">Nickname</label>
+                <input type="text" id="nick_name" name="nick_name" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="make">Make</label>
+                <input type="text" id="make" name="make" required>
+            </div>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" id="model" name="model" required>
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit">Save</button>
+            </div>
+        </form>
+        </div>
+      </main>
+    <footer id="main-footer"></footer>
+</body>
+
+</html>
