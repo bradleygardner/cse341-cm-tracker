@@ -12,14 +12,14 @@ routes.get('/login', (req, res) => {
 routes.get('/dashboard', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/index.html'))
 });
-routes.get('/cars', ensureAuth, (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'pages/cars.html'))
-});
-routes.get('/cars/addcar', ensureAuth, (req, res) => {
+routes.get('/addcar', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/addCar.html'))
 });
-routes.get('/cars/cardetails', ensureAuth, (req, res) => {
+routes.get('/cardetails', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/carDetails.html'))
+});
+routes.get('/addmaintenance', ensureAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'pages/addMaintenance.html'))
 });
 
 module.exports = routes;

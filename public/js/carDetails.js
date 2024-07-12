@@ -8,8 +8,11 @@ await populateMaintenanceItems();
 
 async function populateTitle() {
     const car = await get(`/car/${carId}`);
-    const element = document.getElementById("main-title")
-    element.textContent = `${car.nickName} - ${car.year} ${car.make} ${car.model}`
+    const title = document.getElementById("main-title");
+    title.textContent = `${car.nickName} - ${car.year} ${car.make} ${car.model}`;
+
+    const addBtn = document.getElementById("main-btn");
+    addBtn.setAttribute("href", `/addmaintenance?id=${carId}`);
 }
 
 async function populateMaintenanceItems() {
