@@ -29,6 +29,23 @@ async function getMaintenanceById(req, res) {
     }
 }
 
+// Get all maintenance record by car ID
+async function getAllMaintenanceByCarId(req, res) {
+    try {
+        const { id } = req.params;
+        if (!ObjectId.isValid(id)) {
+            return res.status(412).json({ message: 'Precondition Failed: Invalid ID' });
+        }
+        const maintenanceRecord = await Maintenance.find({carId: id});
+        if (!maintenanceRecord) {
+            return res.status(404).json({ message: 'Maintenance record not found' });
+        }
+        res.status(200).json(maintenanceRecord);
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error', error });
+    }
+}
+
 // Create a new maintenance record
 async function createMaintenance(req, res) {
     try {
@@ -77,6 +94,7 @@ async function deleteMaintenance(req, res) {
 module.exports = {
     getAllMaintenance,
     getMaintenanceById,
+    getAllMaintenanceByCarId,
     createMaintenance,
     updateMaintenance,
     deleteMaintenance
