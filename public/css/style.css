@@ -1,0 +1,50 @@
+:root {
+    --color_primary: ;
+    --color_secondary: ;
+    --color_text: ;
+    --color_buttons: ;
+    --color_accent: ;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    min-height: 50px;
+    width: 100%;
+    background-color: var(--color_accent);
+}
+
+footer {
+    min-height: 50px;
+    width: 100%;
+    background-color: var(--color_accent);
+}
+
+.titlebar {
+    display: flex;
+}
+
+.navBar {
+    display: flex;
+}
+
+.cc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body {
+    background-color: var(--color_primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    flex: 1;
+}
