@@ -1,0 +1,43 @@
+### Get all warranty records
+GET http://localhost:5504/warranty
+Content-Type: application/json
+
+###
+
+### Create a new warranty record
+POST http://localhost:5504/warranty
+Content-Type: application/json
+
+{
+  "maintenanceId": "123456",
+  "purchasedDate": "2024-01-01",
+  "purchasedFrom": "Vendor A",
+  "expiredDate": "2025-01-01",
+  "notes": "First warranty record"
+}
+
+###
+
+### Get a warranty record by ID
+GET http://localhost:5504/warranty/6697105f86e6d4537a6f35fb
+Content-Type: application/json
+
+###
+
+### Update a warranty record by ID
+PUT http://localhost:5504/warranty/6697105f86e6d4537a6f35fb
+Content-Type: application/json
+
+{
+  "maintenanceId": "123456",
+  "purchasedDate": "2024-01-01",
+  "purchasedFrom": "Vendor B",
+  "expiredDate": "2026-01-01",
+  "notes": "Updated warranty record"
+}
+
+###
+
+### Delete a warranty record by ID
+DELETE http://localhost:5504/warranty/6697105f86e6d4537a6f35fb
+Content-Type: application/json
