@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/addWarrantyItem.js" type="module"></script>
+    <title>Add Warranty</title>
+</head>
+
+<body>
+    <Header id="main-header"></Header>
+    <main>
+        <h1>Add Warranty Item</h1>
+        <div id="main-content">
+          <form name="warrantyItem">
+            <div class="form-group">
+                <label for="purchasedDate">Purchase Date</label>
+                <input type="text" id="purchasedDate" name="purchasedDate" required>
+            </div>
+            <div class="form-group">
+                <label for="purchasedFrom">Purchase From</label>
+                <input type="text" id="purchasedFrom" name="purchasedFrom" required>
+            </div>
+            <div class="form-group">
+                <label for="expiredDate">Expires on</label>
+                <input type="text" id="expiredDate" name="expiredDate" required>
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <input type="textarea" id="notes" name="notes" required>
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit">Save</button>
+            </div>
+        </form>
+        </div>
+      </main>
+    <footer id="main-footer"></footer>
+</body>
+
+</html>

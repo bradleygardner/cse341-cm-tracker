@@ -18,8 +18,14 @@ routes.get('/addcar', ensureAuth, (req, res) => {
 routes.get('/cardetails', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/carDetails.html'))
 });
+routes.get('/maintenancedetails', ensureAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'pages/maintenanceDetails.html'))
+});
 routes.get('/addmaintenance', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/addMaintenance.html'))
+});
+routes.get('/addwarranty', ensureAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'pages/addWarranty.html'))
 });
 
 module.exports = routes;
