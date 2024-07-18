@@ -19,7 +19,7 @@ async function loadCars() {
 export function carsListTemplate(item) {
     
     return `<li class="item">
-       <a href="cars/cardetails?id=${item._id}">
+       <a href="cardetails?id=${item._id}">
            <h3>Nickname: ${item.nickName}</h3>
            <h3>Year: ${item.year}</h3>
            <h3>Make: ${item.make}</h3>
