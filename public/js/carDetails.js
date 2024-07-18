@@ -24,7 +24,7 @@ async function populateMaintenanceItems() {
 export function maintenanceListTemplate(item) {
 
     return `<li class="item">
-       <a href="">
+       <a href="maintenancedetails?id=${item._id}">
            <h3>Mileage: ${item.mileage}</h3>
            <h3>Part: ${item.part}</h3>
            <h3>Date Installed: ${item.dateInstalled}</h3>

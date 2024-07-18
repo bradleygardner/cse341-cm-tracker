@@ -8,6 +8,19 @@ const getWarrantyRecords = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+const getAllWarrantyByMaintenanceId = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const warranty = await Warranty.find({maintenanceId: id});
+    if (!warranty) {
+      return res.status(404).json({ message: 'Warranty record not found' });
+    }
+    res.status(200).json(warranty);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 
 // Create a new warranty record
 const createWarrantyRecord = async (req, res) => {
@@ -88,6 +101,7 @@ const deleteWarrantyRecordById = async (req, res) => {
 
 module.exports = {
   getWarrantyRecords,
+  getAllWarrantyByMaintenanceId,
   createWarrantyRecord,
   getWarrantyRecordById,
   updateWarrantyRecordById,
