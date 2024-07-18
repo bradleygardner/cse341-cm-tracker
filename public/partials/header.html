@@ -2,42 +2,19 @@
     <a href="/dashboard">
         <img src="/images/image.png" alt="Logo" class="h-10" />
     </a>
-    <div class="hidden md:flex items-center justify-around w-1/2">
-        <a href="/dashboard" class="text-white mr-4">Home</a>
-
-        <!-- Cars Dropdown -->
-        <div class="relative">
-            <a id="cars-link" class="text-white mr-4">Cars</a>
-            <div id="cars-menu"
-                class="absolute hidden bg-gray-800 text-white py-2 mt-2 w-32 rounded-lg shadow-lg">
-                <a href="/addcar" class="block px-4 py-2 hover:bg-gray-700">Add
-                    Car</a>
-                <a href="/updatecar"
-                    class="block px-4 py-2 hover:bg-gray-700">Update Car</a>
-                <a href="/deletecar"
-                    class="block px-4 py-2 hover:bg-gray-700">Delete Car</a>
-            </div>
-        </div>
-
-        <!-- Maintenance Dropdown -->
-        <div class="relative">
-            <a id="maintenance-link" class="text-white mr-4">Maintenance</a>
-            <div id="maintenance-menu"
-                class="absolute hidden bg-gray-800 text-white py-2 mt-2 w-32 rounded-lg shadow-lg">
-                <a href="/addmaintenance"
-                    class="block px-4 py-2 hover:bg-gray-700">Add
-                    Maintenance</a>
-                <a href="/deletemaintenance"
-                    class="block px-4 py-2 hover:bg-gray-700">Delete
-                    Maintenance</a>
-                <a href="/updatemaintenance"
-                    class="block px-4 py-2 hover:bg-gray-700">Update
-                    Maintenance</a>
-            </div>
-        </div>
-
+    <div class="flex justify-evenly">
+        <a href="/dashboard"
+            class="text-white mr-4 hover:text-gray-300 transition-colors duration-300">Home</a>
+        <a href="/addcar"
+            class="text-white mr-4 hover:text-gray-300 transition-colors duration-300">Add
+            Car</a>
+        <a href="/addmaintenance"
+            class="text-white mr-4 hover:text-gray-300 transition-colors duration-300">Add
+            Maintenance</a>
         <input type="text" placeholder="Search"
-            class="bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:shadow-outline" />
-        <a href="/auth/logout" class="text-white">Logout</a>
+            class="bg-gray-700 text-white px-4 py-2 mr-4 rounded-lg focus:outline-none focus:shadow-outline" />
+
     </div>
+    <a href="/auth/logout"
+        class="text-white hover:text-gray-300 transition-colors duration-300">Logout</a>
 </div>

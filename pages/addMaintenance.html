@@ -14,19 +14,11 @@
 
     <body class="bg-gray-100">
         <header id="main-header"></header>
-        <nav class="bg-gray-800 text-white">
-            <ul class="flex">
-                <li><a href="/" class="px-4 py-2">Home</a></li>
-                <li><a href="/cars" class="px-4 py-2">Cars</a></li>
-                <li><a href="/warranty" class="px-4 py-2">Warranty</a></li>
-                <li><a href="/maintenance"
-                        class="px-4 py-2">Maintenance</a></li>
-            </ul>
-        </nav>
         <main class="mx-auto max-w-lg p-4">
             <h1 class="text-2xl font-bold mb-4">Add Maintenance Item</h1>
             <div id="main-content "
-                class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                style="min-width: 400px;">
                 <form name="maintenanceItem">
                     <div class="mb-4">
                         <label for="mileage"
@@ -57,15 +49,15 @@
                     <div class="mb-4">
                         <label for="description"
                             class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                        <input type="textarea" id="description"
+                        <textarea id="description"
                             name="description" required
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                     </div>
                     <div class="mb-4">
                         <label for="notes"
                             class="block text-gray-700 text-sm font-bold mb-2">Notes</label>
-                        <input type="textarea" id="notes" name="notes" required
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <textarea id="notes" name="notes" required
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                     </div>
                     <div class="mb-4">
                         <button
