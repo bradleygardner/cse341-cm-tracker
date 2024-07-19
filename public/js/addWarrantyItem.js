@@ -12,13 +12,14 @@ document.forms["warrantyItem"].addEventListener("submit", (event) => {
 async function saveItem(form) {
     let item = {
         maintenanceId: maintenanceId,
-        purchaseDate: form.elements.purchasedDate.value,
-        purchaseFrom: form.elements.purchasedFrom.value,
+        purchasedDate: form.elements.purchasedDate.value,
+        purchasedFrom: form.elements.purchasedFrom.value,
         expiredDate: form.elements.expiredDate.value,
         notes: form.elements.notes.value,
     }
     try {
         const res = await save(item, "/warranty");
+        window.location.href = `../maintenancedetails?id=${maintenanceId}`
     }
     catch (err) {
         console.log(err);

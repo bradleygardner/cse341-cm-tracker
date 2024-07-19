@@ -21,6 +21,7 @@ async function saveItem(form) {
     }
     try {
         const res = await save(item, "/maintenance");
+        window.location.href = `../cardetails?id=${carId}`
     }
     catch (err) {
         console.log(err);
