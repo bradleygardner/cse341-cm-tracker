@@ -1,10 +1,15 @@
-import { loadHeaderFooter, renderListWithTemplate, get, getParam } from "./utils.js";
+import { loadHeaderFooter, renderListWithTemplate, get, deleteItem, getParam } from "./utils.js";
 
 const carId = getParam("id");
 
 loadHeaderFooter(true, true);
 await populateTitle();
 await populateMaintenanceItems();
+
+let deleteBtn = document.querySelectorAll(".delete");
+deleteBtn.forEach((btn) => {
+    btn.addEventListener("click", deleteMaintenanceItem);
+});
 
 async function populateTitle() {
     const car = await get(`/car/${carId}`);
@@ -34,4 +39,9 @@ export function maintenanceListTemplate(item) {
            </a>
            <button class="delete" data-id="${item._id}">Delete</button>
    </li>`
+}
+
+export async function deleteMaintenanceItem(e) {
+    const res = await deleteItem(`/maintenance/${e.target.dataset.id}`)
+    await populateMaintenanceItems();
 }

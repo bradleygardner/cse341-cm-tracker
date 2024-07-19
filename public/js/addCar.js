@@ -16,6 +16,7 @@ async function saveCar(form) {
     }
     try {
         const res = await save(car, "/car");
+        window.location.href = `../dashboard`
     }
     catch (err) {
         console.log(err);
