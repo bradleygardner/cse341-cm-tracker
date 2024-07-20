@@ -34,7 +34,7 @@ input[type="textarea"] {
     box-sizing: border-box;
 }
 
-button.btn {
+.form-group .btn {
     width: 100%;
     padding: 10px;
     background-color: var(--color_buttons);

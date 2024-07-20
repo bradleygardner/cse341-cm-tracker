@@ -99,16 +99,11 @@ const deleteWarrantyRecordById = async (req, res) => {
   }
 };
 
-function sum(a,b) {
-  return a + b
-}
-
 module.exports = {
   getWarrantyRecords,
   getAllWarrantyByMaintenanceId,
   createWarrantyRecord,
   getWarrantyRecordById,
   updateWarrantyRecordById,
-  deleteWarrantyRecordById,
-  sum
+  deleteWarrantyRecordById
 };

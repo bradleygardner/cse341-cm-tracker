@@ -4,15 +4,25 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 600px;
+    max-width: 60vw;
     margin: 20px auto;
     color: var(--color_text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #main-title {
     color: var(--color_text);
     text-align: center;
     margin: 20px 0;
+}
+
+main h1 {
+    width: 100%;
+    border-bottom: 1px solid var(--color_text);
 }
 
 #main-btn {
@@ -32,31 +42,58 @@ main {
 
 #main-content {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    height: 300px; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    /* border: 1px solid #ccc;  */
+    padding: 10px;
+    box-sizing: border-box;
     background-color: var(--color_secondary);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+  }
 
 #main-table {
     /* width: 100%; */
     border-collapse: collapse;
     margin-top: 20px;
+    display: block;
+    height: 100%;
 }
 
-#main-table th,
-#main-table td {
-    padding: 10px;
-    border: 1px solid var(--color_buttons);
-    text-align: left;
-    color: var(--color_text);
-}
-
-#main-table th {
+.item {
+    display: flex;
+    border-radius: 5px;
     background-color: var(--color_accent);
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 0 auto 10px auto;
+    width: 60%;
 }
 
-#main-table tr:nth-child(even) {
-    background-color: var(--color_primary);
+.item a {
+    display: block;
+    width: 100%;
+    color: var(--color_text);
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.item a h3 {
+    margin: 0;
+}
+
+
+.item .delete {
+    background-color: var(--color_buttons);
+    color: var(--color_text);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item .delete:hover {
+    background-color: var(--color_accent);
 }

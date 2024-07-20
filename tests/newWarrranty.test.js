@@ -3,16 +3,10 @@ const mongoose = require("mongoose");
 const app = require('../app')
 require("dotenv").config();
 
-const { sum } = require('../controllers/warranty');
-
 describe('testing test', () => {
 
     beforeAll(async () => {
         await mongoose.connect(process.env.MONGODB_URI);
-    });
-
-    test('should add two numbers', () => {
-        expect(sum(1, 2)).toBe(3);
     });
 
     let warrantyId;

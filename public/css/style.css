@@ -1,9 +1,13 @@
 :root {
     --color_primary: rgb(60, 60, 60);
+    /* --color_secondary: #084B83; */
     --color_secondary: grey;
+
     --color_text: white;
     --color_buttons: rgb(74, 161, 243);
-    --color_accent: grey;
+    /* --color_accent: grey; */
+    --color_accent: #084B83;
+
 }
 
 body {
