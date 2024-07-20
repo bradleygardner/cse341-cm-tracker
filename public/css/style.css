@@ -1,9 +1,13 @@
 :root {
-    --color_primary: ;
-    --color_secondary: ;
-    --color_text: ;
-    --color_buttons: ;
-    --color_accent: ;
+    --color_primary: rgb(60, 60, 60);
+    /* --color_secondary: #084B83; */
+    --color_secondary: grey;
+
+    --color_text: white;
+    --color_buttons: rgb(74, 161, 243);
+    /* --color_accent: grey; */
+    --color_accent: #084B83;
+
 }
 
 body {
@@ -15,20 +19,83 @@ header {
     min-height: 50px;
     width: 100%;
     background-color: var(--color_accent);
+    background-color: var(--color_accent);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 footer {
-    min-height: 50px;
-    width: 100%;
     background-color: var(--color_accent);
+    color: var(--color_text);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
 }
 
 .titlebar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.titlebar h1 {
+    margin: 0;
+    color: var(--color_text);
+}
+
+.titlebar a {
+    color: var(--color_text);
+    text-decoration: none;
+    background-color: var(--color_buttons);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.titlebar a:hover {
+    background-color: var(--color_accent);
 }
 
 .navBar {
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navBar .btn {
+    background-color: var(--color_buttons);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navBar .btn a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navBar .btn:hover {
+    background-color: var(--color_accent);
+}
+
+.navBar input[type="text"],
+.navBar input[type="search"] {
+    padding: 10px;
+    border: 1px solid var(--color_buttons);
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .cc {

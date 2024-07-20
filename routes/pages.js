@@ -24,6 +24,9 @@ routes.get('/maintenancedetails', ensureAuth, (req, res) => {
 routes.get('/addmaintenance', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/addMaintenance.html'))
 });
+routes.get('/warrantydetails', ensureAuth, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'pages/warrantyDetails.html'))
+})
 routes.get('/addwarranty', ensureAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages/addWarranty.html'))
 });
