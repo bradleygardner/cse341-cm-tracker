@@ -31,16 +31,14 @@ async function getMaintenanceById(req, res) {
 
 // Get all maintenance record by car ID
 async function getAllMaintenanceByCarId(req, res) {
+    const { id } = req.params;
+    
     try {
-        const { id } = req.params;
-        if (!ObjectId.isValid(id)) {
-            return res.status(412).json({ message: 'Precondition Failed: Invalid ID' });
+        const maintenance = await Maintenance.find({carId: id});
+        if (!maintenance) {
+            return res.status(404).json({ message: 'Precondition Failed: Invalid ID' });
         }
-        const maintenanceRecord = await Maintenance.find({carId: id});
-        if (!maintenanceRecord) {
-            return res.status(404).json({ message: 'Maintenance record not found' });
-        }
-        res.status(200).json(maintenanceRecord);
+        res.status(200).json(maintenance);
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error', error });
     }
